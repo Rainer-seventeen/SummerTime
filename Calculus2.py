@@ -3,25 +3,13 @@ import numpy as np
 
 def finite_difference(f, x, h=1e-5):
     """
-    使用有限差分法进行数值微分
+    使用中心差分法进行数值微分
     f: 被微分函数
     x: 求导点
     h: 步长
     """
     derivative = (f(x + h) - f(x - h)) / (2 * h)
     return derivative
-
-
-# 示例函数
-def func(x):
-    return np.sin(x)
-
-
-# 求导点 x = π/4
-x = np.pi / 4
-
-result = finite_difference(func, x)
-print("数值微分结果:", result)
 
 
 def simpsons_rule(f, a, b, n):
@@ -44,12 +32,17 @@ def simpsons_rule(f, a, b, n):
 
     return integral
 
-
 # 示例函数
+
+
 def func(x):
     return np.sin(x)
 
 
+# 求导点 x = π/4
+x = np.pi / 4
+result = finite_difference(func, x)
+print("数值微分结果:", result)
 # 积分区间 [0, π]
 a = 0
 b = np.pi
